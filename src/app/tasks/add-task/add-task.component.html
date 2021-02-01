@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-between">
+  <h4>Add new Task</h4>
+
+  <button mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div style="overflow: auto; height: 450px;">
+  <form #form='ngForm' (submit)="onSubmit(form)" autocapitalize="off">
+
+       <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Employee
+        </span>
+      </div>
+      <select required class="form-control"
+              name="Employee"
+              #Employee='ngModel'
+              [(ngModel)]="service.formData.Employee">
+        <option *ngFor="let dl of listItems" [value]="dl">
+          {{dl}}
+        </option>
+      </select>
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Task
+        </span>
+      </div>
+      <input required minlength="2" type="text" class="form-control"
+             name="Task"
+             #Task='ngModel'
+             [(ngModel)]="service.formData.Task">
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Date Of Creation
+        </span>
+      </div>
+      <input required [matDatepicker]="picker" class="form-control"
+             name="DateOfCreation"
+             #DateOfCreation='ngModel'
+             [(ngModel)]="service.formData.DateOfCreation">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Deadline
+        </span>
+      </div>
+      <input required [matDatepicker]="picker2" class="form-control"
+             name="Deadline"
+             #Deadline='ngModel'
+             [(ngModel)]="service.formData.Deadline">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Status
+        </span>
+      </div>
+      <input required minlength="2" type="text" class="form-control"
+             name="Status"
+             #Status='ngModel'
+             [(ngModel)]="service.formData.Status">
+    </div>
+
+    <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Add Task</button>
+  </form>
+</div>
