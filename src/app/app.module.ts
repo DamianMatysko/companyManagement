@@ -33,6 +33,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { AddTaskComponent } from './tasks/add-task/add-task.component';
 import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { ShowTaskComponent } from './tasks/show-task/show-task.component';
+import { ShowDetailsTaskComponent } from './tasks/show-details-task/show-details-task.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ShowTaskComponent } from './tasks/show-task/show-task.component';
     TasksComponent,
     AddTaskComponent,
     EditTaskComponent,
-    ShowTaskComponent
+    ShowTaskComponent,
+    ShowDetailsTaskComponent
   ],
     imports: [
         BrowserModule,

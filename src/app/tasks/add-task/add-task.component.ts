@@ -51,6 +51,7 @@ export class AddTaskComponent implements OnInit {
       TaskID: 0,
       Employee: '',
       Task: '',
+      Details: '',
       DateOfCreation: null,
       Deadline: null,
       Status: ''
