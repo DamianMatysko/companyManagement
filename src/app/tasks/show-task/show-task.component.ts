@@ -42,8 +42,8 @@ export class ShowTaskComponent implements OnInit {
     console.log(this.listData);
   }
 
-  onEdit(dep: Tasks) {
-    this.service.formData = dep;
+  onEdit(tsk: Tasks) {
+    this.service.formData = tsk;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -73,7 +73,8 @@ export class ShowTaskComponent implements OnInit {
     this.dialog.open(AddTaskComponent, dialogConfig);
   }
 
-  onInfo(row: any) {
+  onInfo(tsk: Tasks) {
+    this.service.formData = tsk;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
