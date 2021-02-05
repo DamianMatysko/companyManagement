@@ -4,16 +4,19 @@ import {MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NgForm} from '@angular/forms';
 import {TasksService} from '../../services/tasks.service';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  styleUrls: ['./add-task.component.css'],
+  providers: [DatePipe]
 })
 export class AddTaskComponent implements OnInit {
   listItems: Array<string> = [];
-
+  myDate: Date = new Date();
+  currentDate: String = '';
 
   get service(): TasksService {
     return this._service;
@@ -22,8 +25,10 @@ export class AddTaskComponent implements OnInit {
   constructor(
     public dialogbox: MatDialogRef<AddTaskComponent>,
     private _service: TasksService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private datePipe: DatePipe
   ) {
+    this.currentDate = this.datePipe.transform(this.myDate, 'dd-MM-yyyy');
   }
 
   ngOnInit(): void {
@@ -36,6 +41,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    form.value.Status = 'Waiting';
+    form.value.DateOfCreation = this.currentDate;
+    console.log(new Date().getDate());
     this._service.addTasks(form.value).subscribe(res => {
       this.resetForm(form);
       this.snackBar.open(res.toString(), '', {duration: 3000, verticalPosition: 'top'});
