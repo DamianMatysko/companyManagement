@@ -25,7 +25,7 @@ export class ShowEmployeeComponent implements OnInit {
   }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options', 'EmployeeID', 'EmployeeName', 'Department', 'MailID', 'DOJ'];
+  displayedColumns: string[] = ['EmployeeID', 'EmployeeName', 'Department', 'MailID', 'DOJ', 'Options'];
 
   @ViewChild(MatSort) sort: MatSort;
 
