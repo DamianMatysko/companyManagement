@@ -6,7 +6,6 @@ import {NgForm} from '@angular/forms';
 import {TasksService} from '../../services/tasks.service';
 import {DatePipe} from '@angular/common';
 
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -28,7 +27,7 @@ export class AddTaskComponent implements OnInit {
     private snackBar: MatSnackBar,
     private datePipe: DatePipe
   ) {
-    this.currentDate = this.datePipe.transform(this.myDate, 'dd-MM-yyyy');
+    this.currentDate = this.datePipe.transform(this.myDate, 'MM-dd-yyyy');
   }
 
   ngOnInit(): void {
@@ -41,9 +40,10 @@ export class AddTaskComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    form.value.Status = 'Waiting';
+    form.value.Status = 'Just created';
     form.value.DateOfCreation = this.currentDate;
-    console.log(new Date().getDate());
+    form.value.Deadline =  this.datePipe.transform(form.value.Deadline, 'MM-dd-yyyy');
+    console.log(form.value.Deadline);
     this._service.addTasks(form.value).subscribe(res => {
       this.resetForm(form);
       this.snackBar.open(res.toString(), '', {duration: 3000, verticalPosition: 'top'});

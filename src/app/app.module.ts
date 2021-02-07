@@ -25,7 +25,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {TasksService} from './services/tasks.service';
@@ -75,7 +75,8 @@ import { ShowDetailsTaskComponent } from './tasks/show-details-task/show-details
   providers: [
     DepartmentService,
     EmployeeService,
-    TasksService
+    TasksService,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddDepartmentComponent]

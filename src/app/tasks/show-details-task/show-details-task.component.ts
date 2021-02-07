@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TasksService} from '../../services/tasks.service';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialogRef} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
@@ -10,8 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./show-details-task.component.css']
 })
 export class ShowDetailsTaskComponent implements OnInit {
-
-  constructor(private service: TasksService,
+  constructor(public service: TasksService,
               public dialogbox: MatDialogRef<ShowDetailsTaskComponent>,
   ) {
   }

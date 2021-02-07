@@ -9,6 +9,7 @@ import {Tasks} from '../../models/Tasks-model';
 import {EditTaskComponent} from '../edit-task/edit-task.component';
 import {AddTaskComponent} from '../add-task/add-task.component';
 import {ShowDetailsTaskComponent} from '../show-details-task/show-details-task.component';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class ShowTaskComponent implements OnInit {
     this.refreshTasksList();
   }
 
-  refreshTasksList() {
+  public refreshTasksList() {
     this.service.getTasksList().subscribe(data => {
       this.listData = new MatTableDataSource(data);
       this.listData.sort = this.sort;
@@ -57,7 +58,6 @@ export class ShowTaskComponent implements OnInit {
         this.refreshTasksList();
         this.snackBar.open(res.toString(), '', {duration: 5000, verticalPosition: 'top'});
       });
-
     }
   }
 
