@@ -22,10 +22,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatSortModule} from '@angular/material/sort';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatDialogModule} from '@angular/material/dialog';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {TasksService} from './services/tasks.service';
@@ -34,6 +34,11 @@ import { AddTaskComponent } from './tasks/add-task/add-task.component';
 import { EditTaskComponent } from './tasks/edit-task/edit-task.component';
 import { ShowTaskComponent } from './tasks/show-task/show-task.component';
 import { ShowDetailsTaskComponent } from './tasks/show-details-task/show-details-task.component';
+import {AlertComponent} from './components/alert.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {LoginComponent} from './login';
+import {HomeComponent} from './home';
+import {RegisterComponent} from './register';
 
 
 @NgModule({
@@ -52,30 +57,38 @@ import { ShowDetailsTaskComponent } from './tasks/show-details-task/show-details
     AddTaskComponent,
     EditTaskComponent,
     ShowTaskComponent,
-    ShowDetailsTaskComponent
+    ShowDetailsTaskComponent,
+    AlertComponent,
+    PageNotFoundComponent,
+    RegisterComponent,
+    LoginComponent,
+    AlertComponent,
+    HomeComponent
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatTableModule,
-        MatButtonModule,
-        MatIconModule,
-        HttpClientModule,
-        MatSortModule,
-        OverlayModule,
-        MatDialogModule,
-        FormsModule,
-        MatSnackBarModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        RouterModule,
-        AppRoutingModule
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
+    MatSortModule,
+    OverlayModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    RouterModule,
+    AppRoutingModule,
+    ReactiveFormsModule
+  ],
   providers: [
     DepartmentService,
     EmployeeService,
-    TasksService
+    TasksService,
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
   ],
   bootstrap: [AppComponent],
   entryComponents: [AddDepartmentComponent]
