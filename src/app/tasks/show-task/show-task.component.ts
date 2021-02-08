@@ -8,8 +8,8 @@ import {TasksService} from '../../services/tasks.service';
 import {Tasks} from '../../models/Tasks-model';
 import {EditTaskComponent} from '../edit-task/edit-task.component';
 import {AddTaskComponent} from '../add-task/add-task.component';
-
 import {ShowDetailsTaskComponent} from '../show-details-task/show-details-task.component';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class ShowTaskComponent implements OnInit {
   }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['Options', 'TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status'];
+  displayedColumns: string[] = ['TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status', 'Options'];
 
   @ViewChild(MatSort) sort: MatSort;
 

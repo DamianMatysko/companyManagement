@@ -12,7 +12,8 @@ export class TasksService {
   constructor(private http: HttpClient) {
   }
 
-  readonly APIUrl = 'https://localhost:44381/api';
+  // readonly APIUrl = 'https://localhost:44381/api'; Artem's server
+  readonly APIUrl = 'https://localhost:44339/api';
 
   formData: Tasks;
 

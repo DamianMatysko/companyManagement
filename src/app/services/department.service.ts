@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Department } from '../models/Department-model';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Department} from '../models/Department-model';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,8 @@ export class DepartmentService {
   constructor(private http: HttpClient) {
   }
 
-  readonly APIUrl = 'https://localhost:44381/api';
+  // readonly APIUrl = 'https://localhost:44381/api'; Artem's server
+  readonly APIUrl = 'https://localhost:44339/api';
 
   formData: Department;
 

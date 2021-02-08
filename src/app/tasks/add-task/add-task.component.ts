@@ -15,8 +15,7 @@ import {DatePipe} from '@angular/common';
 })
 export class AddTaskComponent implements OnInit {
   listItems: Array<string> = [];
-  myDate: Date = new Date();
-  currentDate: string;
+  myDate: Date;
 
   get service(): TasksService {
     return this._service;
@@ -28,7 +27,7 @@ export class AddTaskComponent implements OnInit {
     private snackBar: MatSnackBar,
     private datePipe: DatePipe
   ) {
-    this.currentDate = this.datePipe.transform(this.myDate, 'MM-dd-yyyy');
+
   }
 
   ngOnInit(): void {
@@ -41,8 +40,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.myDate = new Date();
     form.value.Status = 'Just created';
-    form.value.DateOfCreation = this.currentDate;
+    form.value.DateOfCreation = this.datePipe.transform(this.myDate, 'MM-dd-yyyy');
     form.value.Deadline = this.datePipe.transform(form.value.Deadline, 'MM-dd-yyyy');
     console.log(form.value.Deadline);
     this._service.addTasks(form.value).subscribe(res => {

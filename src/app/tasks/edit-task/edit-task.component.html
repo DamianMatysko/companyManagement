@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between">
-  <h4>Update new Employee</h4>
+  <h4>Update Task</h4>
 
   <button mat-button (click)="onClose()">
     <mat-icon>close</mat-icon>
@@ -52,6 +52,18 @@
     <div class="m-3 input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
+          Details
+        </span>
+      </div>
+      <input required minlength="2" type="text" class="form-control"
+             name="Details"
+             #Task='ngModel'
+             [(ngModel)]="service.formData.Details">
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
           Date Of Creation
         </span>
       </div>
@@ -66,7 +78,7 @@
     <div class="m-3 input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          DOJ
+          Deadline
         </span>
       </div>
       <input required [matDatepicker]="picker2" class="form-control"

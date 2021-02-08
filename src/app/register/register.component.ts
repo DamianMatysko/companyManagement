@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { AuthenticationService } from '../services/authentication.service';
-import { EmployeeService } from '../services/employee.service';
-import { AlertService } from '../services/alert.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
+import {AuthenticationService} from '../services/authentication.service';
+import {EmployeeService} from '../services/employee.service';
+import {AlertService} from '../services/alert.service';
 
-/*
-@Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
-})
-*/
-
-@Component({ templateUrl: 'register.component.html' })
+@Component({templateUrl: 'register.component.html'})
 
 export class RegisterComponent implements OnInit {
 
@@ -23,53 +15,53 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
   constructor(
-      private formBuilder: FormBuilder,
-      private router: Router,
-      private authenticationService: AuthenticationService,
-      private employeeService: EmployeeService,
-      private alertService: AlertService
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private employeeService: EmployeeService,
+    private alertService: AlertService
   ) {
-      // redirect to home if already logged in
-      if (this.authenticationService.currentUserValue) {
-          this.router.navigate(['/']);
-      }
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
   }
 
   ngOnInit() {
-      this.registerForm = this.formBuilder.group({
-          EmployeeName: ['', Validators.required],
-          Department: ['', Validators.required],
-          password: ['', [Validators.required, Validators.minLength(6)]],
-          MailID: ['', Validators.required]
-          // DOJ: ['', Validators.required]
-      });
+    this.registerForm = this.formBuilder.group({
+      EmployeeName: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      MailID: ['', Validators.required],
+    });
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get f() {
+    return this.registerForm.controls;
+  }
 
   onSubmit() {
-      this.submitted = true;
+    this.submitted = true;
 
-      // reset alerts on submit
-      this.alertService.clear();
+    // reset alerts on submit
+    this.alertService.clear();
 
-      // stop here if form is invalid
-      if (this.registerForm.invalid) {
-          return;
-      }
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
 
-      this.loading = true;
-      this.employeeService.register(this.registerForm.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                  this.alertService.success('Registration successful', true);
-                  this.router.navigate(['/login']);
-              },
-              error => {
-                  this.alertService.error(error);
-                  this.loading = false;
-    });
+    this.loading = true;
+    this.employeeService.register(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.alertService.success('Registration successful', true);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        });
   }
 }
