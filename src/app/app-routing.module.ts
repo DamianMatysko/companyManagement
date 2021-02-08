@@ -23,9 +23,9 @@ const routes: Routes = [
   {path: '', component: DepartmentComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'department', component: DepartmentComponent},
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'tasks', component: TasksComponent},
+  {path: 'department', component: DepartmentComponent, canActivate: [AuthGuard]},
+  {path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard]},
+  {path: 'tasks', component: TasksComponent, canActivate: [AuthGuard]},
 
   // otherwise redirect to home
   {path: '**', redirectTo: ''}

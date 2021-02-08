@@ -17,7 +17,7 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  // readonly APIUrl = 'https://localhost:44381/api'; Artem's server
+  // readonly APIUrl = 'https://localhost:44381/api'; Artem server
   readonly APIUrl = 'https://localhost:44339/api';
 
   public get currentUserValue(): Employee {
