@@ -7,44 +7,9 @@
     <mat-table [dataSource]="listData" matSort>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
-
-      <ng-container matColumnDef="TaskID">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>TaskID</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.TaskID}}</mat-header-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Employee">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Employee</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.Employee}}</mat-header-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Task">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Task</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.Task}}</mat-header-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="DateOfCreation">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Creation</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.DateOfCreation}}</mat-header-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Deadline">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Deadline</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.Deadline}}</mat-header-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Status">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
-        <mat-header-cell *matCellDef="let element">{{element.Status}}</mat-header-cell>
-      </ng-container>
-
       <ng-container matColumnDef="Options">
         <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
         <mat-cell *matCellDef="let row">
-
-          <button mat-icon-button (click)="onInfo(row)">
-            <mat-icon>info</mat-icon>
-          </button>
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>launch</mat-icon>
           </button>
@@ -52,6 +17,36 @@
             <mat-icon>deleted_outline</mat-icon>
           </button>
         </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="TaskID">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>TaskID</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.TaskID}}</mat-header-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Employee">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Employee</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.Employee}}</mat-header-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Task">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Task</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.Task}}</mat-header-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="DateOfCreation">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Date Of Creation</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.DateOfCreation}}</mat-header-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Deadline">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Deadline</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.Deadline}}</mat-header-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Status">
+        <mat-header-cell *matHeaderCellDef  mat-sort-header>Status</mat-header-cell>
+        <mat-header-cell *matCellDef="let element">{{element.Status}}</mat-header-cell>
       </ng-container>
 
     </mat-table>

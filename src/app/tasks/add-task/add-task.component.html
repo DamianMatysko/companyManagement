@@ -40,13 +40,15 @@
     <div class="m-3 input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
-          Details
+          Date Of Creation
         </span>
       </div>
-      <input required minlength="2" type="text" class="form-control"
-             name="Details"
-             #Details='ngModel'
-             [(ngModel)]="service.formData.Details">
+      <input required [matDatepicker]="picker" class="form-control"
+             name="DateOfCreation"
+             #DateOfCreation='ngModel'
+             [(ngModel)]="service.formData.DateOfCreation">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </div>
 
     <div class="m-3 input-group">
@@ -61,6 +63,18 @@
              [(ngModel)]="service.formData.Deadline">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
+    </div>
+
+    <div class="m-3 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Status
+        </span>
+      </div>
+      <input required minlength="2" type="text" class="form-control"
+             name="Status"
+             #Status='ngModel'
+             [(ngModel)]="service.formData.Status">
     </div>
 
     <button class="m-3" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Add Task</button>

@@ -8,7 +8,6 @@ import {TasksService} from '../../services/tasks.service';
 import {Tasks} from '../../models/Tasks-model';
 import {EditTaskComponent} from '../edit-task/edit-task.component';
 import {AddTaskComponent} from '../add-task/add-task.component';
-import {ShowDetailsTaskComponent} from '../show-details-task/show-details-task.component';
 
 
 @Component({
@@ -25,7 +24,7 @@ export class ShowTaskComponent implements OnInit {
   }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status', 'Options'];
+  displayedColumns: string[] = ['Options', 'TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status'];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -71,13 +70,5 @@ export class ShowTaskComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '70%';
     this.dialog.open(AddTaskComponent, dialogConfig);
-  }
-
-  onInfo(row: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '70%';
-    this.dialog.open(ShowDetailsTaskComponent, dialogConfig);
   }
 }

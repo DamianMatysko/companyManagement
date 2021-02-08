@@ -12,7 +12,7 @@ export class TasksService {
   constructor(private http: HttpClient) {
   }
 
-  readonly APIUrl = 'https://localhost:44339/api';
+  readonly APIUrl = 'https://localhost:44381/api';
 
   formData: Tasks;
 

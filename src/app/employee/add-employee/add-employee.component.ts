@@ -51,7 +51,9 @@ export class AddEmployeeComponent implements OnInit {
       EmployeeName: '',
       Department: '',
       MailID: '',
-      DOJ: null
+      DOJ: null,
+      Password: '',
+      token: ''
     };
   }
 
