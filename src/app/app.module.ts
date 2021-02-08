@@ -37,7 +37,6 @@ import { ShowDetailsTaskComponent } from './tasks/show-details-task/show-details
 import {AlertComponent} from './components/alert.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {LoginComponent} from './login';
-import {HomeComponent} from './home';
 import {RegisterComponent} from './register';
 
 
@@ -62,8 +61,7 @@ import {RegisterComponent} from './register';
     PageNotFoundComponent,
     RegisterComponent,
     LoginComponent,
-    AlertComponent,
-    HomeComponent
+    AlertComponent
   ],
   imports: [
     BrowserModule,
