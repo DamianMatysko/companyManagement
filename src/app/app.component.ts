@@ -12,6 +12,7 @@ import { Employee } from './models/Employee-model';
 })
 export class AppComponent {
   currentUser: Employee;
+  title: "Company Management";
 
     constructor(
         private router: Router,
