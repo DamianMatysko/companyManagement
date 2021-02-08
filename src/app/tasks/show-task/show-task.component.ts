@@ -8,8 +8,11 @@ import {TasksService} from '../../services/tasks.service';
 import {Tasks} from '../../models/Tasks-model';
 import {EditTaskComponent} from '../edit-task/edit-task.component';
 import {AddTaskComponent} from '../add-task/add-task.component';
+<<<<<<< HEAD
 import {ShowDetailsTaskComponent} from '../show-details-task/show-details-task.component';
 import {DatePipe} from '@angular/common';
+=======
+>>>>>>> origin/loginForm
 
 
 @Component({
@@ -26,7 +29,7 @@ export class ShowTaskComponent implements OnInit {
   }
 
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status', 'Options'];
+  displayedColumns: string[] = ['Options', 'TaskID', 'Employee', 'Task', 'DateOfCreation', 'Deadline', 'Status'];
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -72,6 +75,7 @@ export class ShowTaskComponent implements OnInit {
     dialogConfig.width = '70%';
     this.dialog.open(AddTaskComponent, dialogConfig);
   }
+<<<<<<< HEAD
 
   onInfo(tsk: Tasks) {
     this.service.formData = tsk;
@@ -81,4 +85,6 @@ export class ShowTaskComponent implements OnInit {
     dialogConfig.width = '70%';
     this.dialog.open(ShowDetailsTaskComponent, dialogConfig);
   }
+=======
+>>>>>>> origin/loginForm
 }
